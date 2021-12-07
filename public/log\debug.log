@@ -1,0 +1,1 @@
+[2021-12-07T10:33:30.485786+00:00] command-log.ERROR: Message not send. Code Error: 0 Message: Connection could not be established with host "localhost:1025": stream_socket_client(): unable to connect to localhost:1025 (Connection refused) [] []

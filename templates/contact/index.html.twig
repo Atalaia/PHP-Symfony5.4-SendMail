@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiches Contact{% endblock %}
+
+{% block body %}
+    <h1>Fiches Contact</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Mail</th>
+                <th>Message</th>
+                <th>Département à contacter</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.nom }}</td>
+                <td>{{ contact.prenom }}</td>
+                <td>{{ contact.mail }}</td>
+                <td>{{ contact.message }}</td>
+                <td>{{ contact.department }}</td>
+                <td>
+                    <a href="{{ path('contact_show', {'id': contact.id}) }}">Voir</a>
+                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune fiche contact trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_new') }}">Créer une fiche contact</a>
+{% endblock %}
